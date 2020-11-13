@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
+import axios from "axios"
+import steve from './images/scuba-steve.jpg'
 import Home from "./components/home"
 import './App.css'
 import {
@@ -10,6 +12,19 @@ import {
 import Products from "./components/products";
 
 export default function App() {
+  const [randomImg, setRandomImg] = useState([]);
+
+  const getImg = (key, query) => {
+    axios.get(`https://api.unsplash.com/photos/random/?client_id=${key}&${query}`)
+        .then(response => {
+            setRandomImg(response.data.urls.small);
+        })
+}
+
+// const clearState = () => {
+//   setRandomImg([]);
+// }
+
   return (
     <Router>
       <div>
@@ -31,7 +46,7 @@ export default function App() {
             <Products />
           </Route>
           <Route path="/">
-            <Home />
+            <Home image={randomImg} getImg={getImg} steve={steve} />
           </Route>
         </Switch>
       </div>

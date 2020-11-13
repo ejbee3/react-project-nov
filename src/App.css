@@ -13,5 +13,10 @@ li {
 }
 
 div > h2 {
-  margin: 0 2rem 0 2rem;
+  margin: 0 2rem 0 1.8rem;
+}
+
+div > img {
+  margin: 1rem 0 1rem 1.8rem;
+  border: 3px solid black;
 }
