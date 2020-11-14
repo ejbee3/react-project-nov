@@ -1,15 +1,26 @@
 import React, {useState} from "react";
 import axios from "axios"
-import steve from './images/scuba-steve.jpg'
-import Home from "./components/home"
-import './App.css'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+
+// images
+import steve from './images/scuba-steve.jpg'
+import diveComputer from './images/diveComputer.jpg'
+import mask from './images/mask.jpg'
+import snorkel from './images/snorkel.jpg'
+import tablet from './images/tablet.jpg'
+import fins from './images/fins.jpg'
+// components
+import Home from "./components/home"
 import Products from "./components/products";
+// CSS
+import './App.css'
+
+
 
 export default function App() {
   const [randomImg, setRandomImg] = useState([]);
@@ -43,7 +54,7 @@ export default function App() {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/products">
-            <Products />
+            <Products diveComputer={diveComputer} mask={mask} fins={fins} snorkel={snorkel} tablet={tablet} />
           </Route>
           <Route path="/">
             <Home image={randomImg} getImg={getImg} steve={steve} />
