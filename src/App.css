@@ -2,6 +2,7 @@ html {
   background-color: aqua;
 }
 
+/* NAV */
 nav > ul {
   display: flex;
   flex-direction: row;
@@ -10,19 +11,76 @@ nav > ul {
 
 nav > ul > li {
   padding: 0 1.2rem 0 1.2rem;
+  font-family: Underdog;
 }
 
-div > h2 {
-  margin: 0 2rem 0 1.8rem;
-  font-family: 'Underdog';
+.checkout-link {
+  margin-left: auto;
 }
 
-div > img {
+/**************** HOME PAGE *******************/
+.home-text {
+  color: darkblue;
+}
+
+.top-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.top-content > img {
   margin: 1rem 0 1rem 1.8rem;
   border: 3px solid darkblue;
 }
 
-section {
+.landing-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.landing-content > h2 {
+  font-family: Underdog;
+  margin: 2rem;
+}
+
+.landing-content > img {
+  margin: 2rem;
+  border: 3px solid darkblue;
+}
+
+.bubble-text {
+  font-family: Underdog;
+}
+
+.speech-bubble {
+  position: relative;
+  background: yellow;
+  border-radius: 0.4em;
+  padding: 2rem;
+}
+
+.speech-bubble:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 50px solid transparent;
+  border-right-color: yellow;
+  border-left: 0;
+  border-top: 0;
+  margin-top: -25px;
+  margin-left: -50px;
+}
+
+/* ***********PRODUCTS PAGE************** */
+li > section {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -51,15 +109,16 @@ section {
   align-self: flex-end;
 }
 
-.home-text {
+.product-title {
   color: darkblue;
+  font-family: Underdog;
 }
 
 .products-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .products-content > ul {

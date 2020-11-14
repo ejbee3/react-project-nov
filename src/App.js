@@ -80,7 +80,7 @@ const makeProducts = () => {
             <li>
               <Link to="/products">Products</Link>
             </li>
-            <li>
+            <li className="checkout-link">
               <Link to="/cart">Checkout</Link>
             </li>
           </ul>

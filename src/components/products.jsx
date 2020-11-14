@@ -8,6 +8,7 @@ export default function Products(props) {
 
   return (
     <div className="products-content">
+      <h2 className="product-title">Scuba Supplies: </h2>
       <ul>
         {products.map(p => (
           <li className="products-list">

@@ -11,12 +11,19 @@ const Home = props => {
 
   return (
     <div className="home-text">
-      <h2>Hello! I'm Scuba Steve!</h2>
+      <section className="top-content">
       <img src={steve} alt=" scuba steve from big daddy movie" />
+      <div className="speech-bubble"><h2 className="bubble-text">Hi, I'm Scuba Steve!</h2></div>
+      
+      
+      </section>
+      <section className="landing-content">
       <h2>
          And this is my Scuba Steve's Scuba Store Emporium!
       Enjoy your visit! And remember, save some for the <span>🐠🐠🐠🐡🐡🐡</span> <span>🔱</span></h2>
-      <img src={image} alt="random ocean scene from Unsplash" />
+      <img src={image} alt="random ocean scene from Unsplash" className="api-img" />
+      </section>
+      
     </div>
   )
   }
