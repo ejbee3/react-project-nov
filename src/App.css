@@ -2,13 +2,13 @@ html {
   background-color: aqua;
 }
 
-ul {
+nav > ul {
   display: flex;
   flex-direction: row;
   list-style-type: none;
 }
 
-li {
+nav > ul > li {
   padding: 0 1.2rem 0 1.2rem;
 }
 
@@ -18,5 +18,61 @@ div > h2 {
 
 div > img {
   margin: 1rem 0 1rem 1.8rem;
-  border: 3px solid black;
+  border: 3px solid darkblue;
+}
+
+section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.product-img {
+  border: 3px solid darkblue;
+}
+
+.fins-img {
+  height: 160px;
+  width: 308px;
+  border: 3px solid darkblue;
+}
+
+.products-list {
+  color: darkblue;
+}
+.product-btn {
+  border: 3px solid darkblue;
+  background-color: yellow;
+  color: blue;
+  border-radius: 4px;
+  margin-left: auto;
+  align-self: flex-end;
+}
+
+.home-text {
+  color: darkblue;
+}
+
+.products-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.products-content > ul {
+  list-style-image: url('./images/bullet-fish.png');
+}
+
+.price-text {
+  text-align: right;
+  font-weight: bolder;
+}
+
+.desc-text {
+  font-style: italic;
+}
+
+h4 {
+  margin-top: 0;
 }

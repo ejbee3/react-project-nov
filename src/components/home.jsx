@@ -7,10 +7,10 @@ const Home = props => {
 
     useEffect(() => {
         getImg(ACCESS_KEY, QUERY)
-        }, []);
+        });
 
   return (
-    <div>
+    <div className="home-text">
       <h2>Hello! I'm Scuba Steve!</h2>
       <img src={steve} alt=" scuba steve from big daddy movie" />
       <h2>
