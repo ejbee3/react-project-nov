@@ -1,21 +1,24 @@
-import React, {useEffect} from "react"
+import React from "react"
 
-export default function Products(props) {
-  const {makeProducts, products} = props
-  useEffect(() => {
-    makeProducts()
-    })
+
+
+export default function Products (props) {
+  
+    const {productList, addToCart} = props
+
+    
 
   return (
+   
     <div className="products-content">
       <h2 className="product-title">Scuba Supplies: </h2>
       <ul>
-        {products.map(p => (
-          <li className="products-list">
+        {productList.map((p) => (
+          <li key={p.id} className="products-list">
             <h4>{p.item}</h4>
             <section>
               <img src={p.imageSrc} alt="mask, fins, snorkel, dive computer, or underwater tablet" className={p.item.includes('Fins') ? "fins-img" : "product-img"} />
-              <button className="product-btn">Add to cart</button>
+              <button className="product-btn" onClick={() => addToCart(p)}>Add to cart</button>
             </section>
             <p className="price-text">{'$' + p.price}</p>
             <p className="desc-text">{p.desc}</p>
@@ -23,5 +26,6 @@ export default function Products(props) {
         ))}
       </ul>
     </div>
+  
   )
 }

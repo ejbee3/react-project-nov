@@ -25,7 +25,7 @@ import './App.css'
 
 export default function App() {
   const [randomImg, setRandomImg] = useState([]);
-  const [products, setProducts] = useState([])
+  const [cart, setCart] = useState([])
 
   const getImg = (key, query) => {
     axios.get(`https://api.unsplash.com/photos/random/?client_id=${key}&${query}`)
@@ -34,42 +34,52 @@ export default function App() {
         })
 }
 
-const makeProducts = () => {
-  setProducts([
-    {
-      item: "Mares X-VU Liquidskin Scuba Diving Mask",
-      price: 79.95,
-      desc: "Maintains a great seal and comfortable feel!",
-      imageSrc: maskImg
-    },
-    {
-      item: "Cressi Foldable Adult Dry Snorkel for Scuba Diving",
-      price: 39.99,
-      desc: "Perfect for shallow dives and conserving air in your tank!",
-      imageSrc: snorkelImg
-    },
-    {
-      item: "Mares Italian Designed Avanti Superchannel Full Foot Fins",
-      price: 69.95,
-      desc: "Closed around your entire foot for a snug fit and a stylish red color!",
-      imageSrc: finsImg
-    },
-    {
-      item: "Oceanic Geo 4 Wrist Dive Computer",
-      price: 399.95,
-      desc: "Useful for planning and keeping track of your descents and ascents!",
-      imageSrc: diveComputerImg
-    },
-    {
-      item: "Trident Underwater Writing Slate with Clip",
-      price: 11.99,
-      desc: "Draw all of the corals and critters you see!",
-      imageSrc: tabletImg
-    }
-  ])
+const addToCart = cartItem => { 
+  setCart([...cart, cartItem])
+  console.log(cart)
 }
 
+
+const productList = [
+  {
+    id: 1,
+    item: "Mares X-VU Liquidskin Scuba Diving Mask",
+    price: 80,
+    desc: "Maintains a great seal and comfortable feel!",
+    imageSrc: maskImg
+  },
+  {
+    id: 2,
+    item: "Cressi Foldable Adult Dry Snorkel for Scuba Diving",
+    price: 40,
+    desc: "Perfect for shallow dives and conserving air in your tank!",
+    imageSrc: snorkelImg
+  },
+  {
+    id: 3,
+    item: "Mares Italian Designed Avanti Superchannel Full Foot Fins",
+    price: 70,
+    desc: "Closed around your entire foot for a snug fit and a stylish red color!",
+    imageSrc: finsImg
+  },
+  {
+    id: 4,
+    item: "Oceanic Geo 4 Wrist Dive Computer",
+    price: 400,
+    desc: "Useful for planning and keeping track of your descents and ascents!",
+    imageSrc: diveComputerImg
+  },
+  {
+    id: 5,
+    item: "Trident Underwater Writing Slate with Clip",
+    price: 12,
+    desc: "Draw all of the corals and critters you see!",
+    imageSrc: tabletImg
+  }
+]
+
   return (
+    
     <Router>
       <div>
         <nav>
@@ -88,10 +98,10 @@ const makeProducts = () => {
 
         <Switch>
           <Route path="/products">
-            <Products makeProducts={makeProducts} products={products} />
+            <Products productList={productList} addToCart={addToCart}/>
           </Route>
           <Route path="/cart">
-            <Cart products={products} />
+            <Cart cart={cart} setCart={setCart}/>
           </Route>
           <Route path="/">
             <Home image={randomImg} getImg={getImg} steve={steve} />
@@ -99,6 +109,7 @@ const makeProducts = () => {
         </Switch>
       </div>
     </Router>
+   
   );
 }
 
