@@ -14,10 +14,13 @@ import maskImg from './images/mask.jpg'
 import snorkelImg from './images/snorkel.jpg'
 import tabletImg from './images/tablet.jpg'
 import finsImg from './images/fins.jpg'
+import waves from './images/waves.png'
 // components
 import Home from "./components/home"
 import Products from "./components/products";
 import Cart from "./components/cart"
+import NavBar from './components/navBar'
+import Banner from './components/banner'
 // CSS
 import './App.css'
 
@@ -92,19 +95,7 @@ const productList = [
     
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/products">Products</Link>
-            </li>
-            <li className="checkout-link">
-  <Link to="/cart">Checkout{cart.length > 0 ? '(' + cart.length + ')' : ""}</Link>
-            </li>
-          </ul>
-        </nav>
+        <NavBar  cart={cart}/>
 
         <Switch>
           <Route path="/products">
@@ -117,6 +108,7 @@ const productList = [
             <Home image={randomImg} getImg={getImg} steve={steve} />
           </Route>
         </Switch>
+        <Banner waves={waves} />
       </div>
     </Router>
    

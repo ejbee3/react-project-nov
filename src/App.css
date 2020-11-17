@@ -1,5 +1,8 @@
-html {
+html,
+body {
   background-color: aqua;
+  margin: 0;
+  padding: 0;
 }
 
 /* NAV */
@@ -173,4 +176,8 @@ li > section {
   background-color: yellow;
   color: blue;
   border-radius: 4px;
+}
+
+.banner-img {
+  margin: 0;
 }
