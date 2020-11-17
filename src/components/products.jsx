@@ -15,7 +15,7 @@ export default function Products (props) {
       <ul>
         {productList.map((p) => (
           <li key={p.id} className="products-list">
-            <h4>{p.item}</h4>
+            <h4 className="item-desc">{p.item}</h4>
             <section>
               <img src={p.imageSrc} alt="mask, fins, snorkel, dive computer, or underwater tablet" className={p.item.includes('Fins') ? "fins-img" : "product-img"} />
               <button className="product-btn" onClick={() => addToCart(p)}>Add to cart</button>

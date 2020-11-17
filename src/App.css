@@ -134,6 +134,43 @@ li > section {
   font-style: italic;
 }
 
-h4 {
+.item-desc {
   margin-top: 0;
+}
+
+/* ************** CHECKOUT PAGE ********** */
+.cart-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cart-content > ul {
+  list-style-type: square;
+}
+
+.cart-item {
+  color: darkblue;
+  font-weight: bold;
+}
+
+.top-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-cart > h3 {
+  margin: 0.1rem;
+  font-family: Underdog;
+  padding-left: 2rem;
+  color: darkblue;
+}
+
+.purchase-btn {
+  border: 3px solid darkblue;
+  background-color: yellow;
+  color: blue;
+  border-radius: 4px;
 }

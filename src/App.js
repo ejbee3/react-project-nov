@@ -26,6 +26,7 @@ import './App.css'
 export default function App() {
   const [randomImg, setRandomImg] = useState([]);
   const [cart, setCart] = useState([])
+  const [totalCost, setTotalCost] = useState(0)
 
   const getImg = (key, query) => {
     axios.get(`https://api.unsplash.com/photos/random/?client_id=${key}&${query}`)
@@ -36,8 +37,17 @@ export default function App() {
 
 const addToCart = cartItem => { 
   setCart([...cart, cartItem])
-  console.log(cart)
+  let newTotal = totalCost
+  setTotalCost(newTotal += cartItem.price)
 }
+
+const purchaseCart = () => {
+  const isPurchased = window.confirm(`Are you sure you want to purchase ${cart.length} items at a price of $ ${totalCost}?`)
+  if (isPurchased) {
+    window.alert('You have bought your cart items!')
+  }
+}
+
 
 
 const productList = [
@@ -91,7 +101,7 @@ const productList = [
               <Link to="/products">Products</Link>
             </li>
             <li className="checkout-link">
-              <Link to="/cart">Checkout</Link>
+  <Link to="/cart">Checkout{cart.length > 0 ? '(' + cart.length + ')' : ""}</Link>
             </li>
           </ul>
         </nav>
@@ -101,7 +111,7 @@ const productList = [
             <Products productList={productList} addToCart={addToCart}/>
           </Route>
           <Route path="/cart">
-            <Cart cart={cart} setCart={setCart}/>
+            <Cart cart={cart} totalCost={totalCost} purchaseCart={purchaseCart} />
           </Route>
           <Route path="/">
             <Home image={randomImg} getImg={getImg} steve={steve} />
