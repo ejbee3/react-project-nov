@@ -141,6 +141,11 @@ li > section {
   margin-top: 0;
 }
 
+.separator {
+  height: 4rem;
+  width: auto;
+}
+
 /* ************** CHECKOUT PAGE ********** */
 .cart-content {
   display: flex;
@@ -178,6 +183,34 @@ li > section {
   border-radius: 4px;
 }
 
+/* ******************FAQ**************** */
+.question-list {
+  color: darkblue;
+  margin-left: 1.5rem;
+  font-style: italic;
+}
+
+.question-list:hover {
+  font-weight: bold;
+  font-size: larger;
+  color: blue;
+}
+
+.answer-list {
+  margin-left: 1.5rem;
+}
+
+.faq-title {
+  font-family: Underdog;
+  text-decoration: underline;
+  margin-left: 1.5rem;
+  color: darkblue;
+}
+
 .banner-img {
   margin: 0;
+  position: fixed;
+  bottom: 0px;
+  height: 12%;
+  width: 33%;
 }

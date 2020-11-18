@@ -25,6 +25,7 @@ export default function Products (props) {
           </li>
         ))}
       </ul>
+      <div className="separator"></div>
     </div>
   
   )

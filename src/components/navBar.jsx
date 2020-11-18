@@ -13,6 +13,9 @@ const navBar = props => {
             <li>
               <Link to="/products">Products</Link>
             </li>
+            <li>
+              <Link to="/faq">FAQ</Link>
+            </li>
             <li className="checkout-link">
               <Link to="/cart">Checkout{cart.length > 0 ? '(' + cart.length + ')' : ""}</Link>
             </li>

@@ -23,7 +23,7 @@ const Home = props => {
       Enjoy your visit! And remember, save some for the <span>🐠🐠🐠🐡🐡🐡</span> <span>🔱</span></h2>
       <img src={image} alt="random ocean scene from Unsplash" className="api-img" />
       </section>
-      
+      <div className="separator"></div>
     </div>
   )
   }

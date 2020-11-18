@@ -3,8 +3,7 @@ import axios from "axios"
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 // images
@@ -21,6 +20,7 @@ import Products from "./components/products";
 import Cart from "./components/cart"
 import NavBar from './components/navBar'
 import Banner from './components/banner'
+import FAQ from './components/faq'
 // CSS
 import './App.css'
 
@@ -30,6 +30,7 @@ export default function App() {
   const [randomImg, setRandomImg] = useState([]);
   const [cart, setCart] = useState([])
   const [totalCost, setTotalCost] = useState(0)
+  const [toggle, setToggle] = useState(false)
 
   const getImg = (key, query) => {
     axios.get(`https://api.unsplash.com/photos/random/?client_id=${key}&${query}`)
@@ -91,6 +92,38 @@ const productList = [
   }
 ]
 
+const FAQList = [
+  {
+    id: 1,
+    Q: "Who is Scuba Steve?",
+    A: `Scuba Steve is an action figure from the comedy movie, Big Daddy, and he helps
+    Julian overcome his fear of taking a bath.`
+  },
+  {
+    id: 2,
+    Q: "Why are the prices nice round numbers?",
+    A: `Javascript has a difficult time handling 
+    certain fractions because of floating point math, for example, try 0.1 + 0.2 in the console!`
+  },
+  {
+    id: 3,
+    Q: "What is that awesome background color?",
+    A: `It's called aqua and it helped me decide on my entire website layout because it reminded
+    me of the ocean.`
+  },
+  {
+    id: 4,
+    Q: "What is a dive computer?",
+    A: `A dive computer takes depth and time information and applies it to a decompression model 
+    to track the dissolved nitrogen in your body during a dive. Your computer 
+    continuously tells you how much dive time you safely have remaining.`
+  }
+]
+
+const toggleQuestion = () => {
+  setToggle(!toggle)
+}
+
   return (
     
     <Router>
@@ -103,6 +136,9 @@ const productList = [
           </Route>
           <Route path="/cart">
             <Cart cart={cart} totalCost={totalCost} purchaseCart={purchaseCart} />
+          </Route>
+          <Route path="/faq">
+            <FAQ FAQList={FAQList} toggleQuestion={toggleQuestion} toggle={toggle}/>
           </Route>
           <Route path="/">
             <Home image={randomImg} getImg={getImg} steve={steve} />
