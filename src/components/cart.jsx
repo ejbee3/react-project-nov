@@ -16,7 +16,10 @@ const Cart = props => {
         </li>
       )) }
       </ul>
+      {totalCost > 0 &&
       <button className="purchase-btn" onClick={() => purchaseCart(cart)}>Purchase your items</button>
+      }
+      
     </div>
   )
   }
