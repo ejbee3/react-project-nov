@@ -100,7 +100,6 @@ export default function App() {
   const [randomImg, setRandomImg] = useState([]);
   const [cart, setCart] = useState([])
   const [totalCost, setTotalCost] = useState(0)
-  // const [toggle, setToggle] = useState(false)
   const [toggleHistory, setToggleHistory] = useState(Array(4).fill(false))
 
   const getImg = (key, query) => {
@@ -132,10 +131,6 @@ const updateToggleHistory = id => {
  })
  setToggleHistory(newToggleHistory)
 }
-
-// const toggleQuestion = () => {
-//   setToggle(!toggle)
-// }
 
   return (
     
