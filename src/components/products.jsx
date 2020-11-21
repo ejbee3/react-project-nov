@@ -4,16 +4,21 @@ import React from "react"
 
 export default function Products (props) {
   
-    const {productList, addToCart} = props
+    const {products, resetProducts, updateSearchQuery, searchQuery, addToCart} = props
 
-    
+ 
 
   return (
    
-    <div className="products-content">
+    <div>
+      <section className="title-search">
       <h2 className="product-title">Scuba Supplies: </h2>
-      <ul>
-        {productList.map((p) => (
+      <input type="text" placeholder="scuba search!" value={searchQuery} onChange={e => updateSearchQuery(e.target.value)} />
+      <button onClick={() => resetProducts() }>reset</button>
+      </section>
+      <div>
+      <ul className="products-content">
+        {products.map((p) => (
           <li key={p.id} className="products-list">
             <h4 className="item-desc">{p.item}</h4>
             <section>
@@ -25,6 +30,7 @@ export default function Products (props) {
           </li>
         ))}
       </ul>
+      </div>
       <div className="separator"></div>
     </div>
   

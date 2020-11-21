@@ -101,7 +101,7 @@ li > section {
 
 .products-list {
   color: darkblue;
-  padding-left: 1.2rem;
+  padding-left: 1.8rem;
 }
 .product-btn {
   border: 3px solid darkblue;
@@ -115,17 +115,31 @@ li > section {
 .product-title {
   color: darkblue;
   font-family: Underdog;
+  margin-left: 4rem;
 }
 
 .products-content {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
+  list-style-image: url('./images/dive-flag.png');
 }
 
-.products-content > ul {
-  list-style-image: url('./images/dive-flag.png');
+.title-search {
+  display: flex;
+}
+
+.title-search > input {
+  height: 1.1rem;
+  width: 15%;
+  margin: 1.5rem 0 0 auto;
+}
+
+.title-search > button {
+  height: 1.5rem;
+  width: 8%;
+  margin-top: 1.5rem;
 }
 
 .price-text {

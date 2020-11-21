@@ -99,6 +99,8 @@ export default function App() {
 
   const [randomImg, setRandomImg] = useState([]);
   const [cart, setCart] = useState([])
+  const [products, setProducts] = useState(productList)
+  const [searchQuery, setSearchQuery] = useState('')
   const [totalCost, setTotalCost] = useState(0)
   const [toggleHistory, setToggleHistory] = useState(Array(4).fill(false))
 
@@ -132,6 +134,19 @@ const updateToggleHistory = id => {
  setToggleHistory(newToggleHistory)
 }
 
+ const updateSearchQuery = searchQuery => {
+      const filtered = products.filter(product => {
+       return product.item.toLowerCase().includes(searchQuery.toLowerCase())
+  })
+      setSearchQuery(searchQuery);
+      setProducts(filtered);
+   }
+
+  const resetProducts = () => {
+    setProducts(productList)
+    setSearchQuery('')
+  } 
+
   return (
     
     <Router>
@@ -140,7 +155,8 @@ const updateToggleHistory = id => {
 
         <Switch>
           <Route path="/products">
-            <Products productList={productList} addToCart={addToCart}/>
+            <Products products={products} resetProducts={resetProducts}
+            addToCart={addToCart} searchQuery={searchQuery} updateSearchQuery={updateSearchQuery}/>
           </Route>
           <Route path="/cart">
             <Cart cart={cart} totalCost={totalCost} purchaseCart={purchaseCart} />
